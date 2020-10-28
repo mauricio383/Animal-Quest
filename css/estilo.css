@@ -1,0 +1,35 @@
+*, *::before, *::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+body, div, section, main, header, footer, p, ul, h1, h2 {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, p {
+    font-size: 1em;
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    background: #E4E4E4 url('../img/icons_bg.svg') repeat top center;
+}

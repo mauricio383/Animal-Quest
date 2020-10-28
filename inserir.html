@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/estilo.css">
+    <title>Ecoquest - Inserir Pergunta</title>
+</head>
+<body>
+    <header>
+        <h1>Inserir</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pesquisa.html">Pesquisa</a></li>
+                <li><button type="button">Sair</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="inserir-pergunta">
+        <div class="titulo-container">
+            <h1>Formualário de Inserção</h1>
+            <span class="ornamento"></span>
+        </div>
+
+        <form>
+            <div class="campo">
+                <label for="pergunta">Pergunta</label>
+                <input type="text" name="pergunta" id="pergunta">
+            </div>
+
+            <div class="campo">
+                <label>Repostas</label>
+                <input type="text" name="alter_a" id="alter_a">
+                <input type="text" name="alter_b" id="alter_b">
+                <input type="text" name="alter_c" id="alter_c">
+                <input type="text" name="alter_d" id="alter_d">
+            </div>
+
+            <div class="campo">
+                <label for="alter_correta">Altenativa Correta</label>
+                <select name="alter_correta" id="alter_correta">
+                    <option value="">Seleciona a altenativa....</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+
+            <button type="submit">Adicionar</button>
+        </form>
+    </main>
+
+    <footer>
+        <div class="titulo-container">
+            <h1>Pesquisa de campo - SENAI Suíço Brasileira</h1>
+            <span class="ornamento"></span>
+        </div>
+
+        <ul className="container">
+            <li className="col-4"><span>Paulo Henrique</span> <a href="https://github.com/henrique1204"><span>Henrique1204</span></a></li>
+            <li className="col-4"><span>Artur Alves</span> <a href="https://github.com/mauricio383"><span>Mauricio383</span></a></li>
+            <li className="col-4"><span>Nicollas Alves</span> <a href="https://github.com/SuperNicolau123"><span>SuperNicolau123</span></a></li>
+        </ul>
+    </footer>
+</body>
+</html>

@@ -31,7 +31,7 @@ img {
 body {
     min-height: 100vh;
     font-family: 'Roboto', sans-serif;
-    background: #E4E4E4 url('../img/icons_bg.svg') repeat top center;
+    background: #E4E4E4 url('../img/fundo_banner.svg') repeat top center;
 }
 
 /* Header */
@@ -79,3 +79,5 @@ header nav a, header nav button {
 header nav a:hover, header nav button:hover {
     text-decoration: underline;
 }
+
+/* Inserir Pergunta */

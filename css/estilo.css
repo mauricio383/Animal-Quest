@@ -33,3 +33,49 @@ body {
     font-family: 'Roboto', sans-serif;
     background: #E4E4E4 url('../img/icons_bg.svg') repeat top center;
 }
+
+/* Header */
+header {
+    padding: 30px 0 20px;
+    color: #F8F8F8;
+    background-color: #004E2D;
+}
+
+header h1 {
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 36px;
+    text-transform: uppercase;
+}
+
+header nav {
+    max-width: 600px;
+    margin: 20px auto 0;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header nav li + li{
+    margin-left: 20px;
+}
+
+header nav a, header nav button {
+    padding: 10px;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: inherit;
+    background: none;
+    display: block;
+    cursor: pointer;
+    outline: none;
+}
+
+header nav a:hover, header nav button:hover {
+    text-decoration: underline;
+}

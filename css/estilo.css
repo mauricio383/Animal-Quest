@@ -36,7 +36,7 @@ body {
 }
 
 /* Header */
-header {
+header, footer {
     padding: 30px 0 20px;
     color: #F8F8F8;
     background-color: #004E2D;
@@ -81,6 +81,68 @@ header nav a:hover, header nav button:hover {
     text-decoration: underline;
 }
 
+/* Footer */
+footer ul {
+    max-width: 960px;
+    margin: 45px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px 20px;
+}
+
+footer li a {
+    padding: 8px;
+    font-size: 16px;
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+footer li a:hover {
+    text-decoration: underline;
+}
+
+footer li > span::after {
+    content: "|";
+    margin-left: 8px;
+    display: inline;
+}
+
+@media only screen and (max-width: 979px) {
+    footer ul {
+        max-width: 700px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    footer li {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer li a {
+        padding: 15px 8px;
+    }
+
+    footer li > span::after {
+        content: "";
+        width: 80px;
+        height: 2px;
+        background-color: currentColor;
+        margin: 15px auto 0;
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 739px) {
+    footer ul {
+        max-width: 300px;
+        grid-template-columns: 1fr;
+        gap: 30px 20px
+    }
+}
+
 /* Titulo e Ornamento */
 .titulo-container {
     max-width: 600px;
@@ -102,13 +164,24 @@ header nav a:hover, header nav button:hover {
     background-color: currentColor;
     display: block;
     box-shadow: 25px 0 0 0 currentColor,
-        -25px 0 0 0 currentColor,
-        0 5px 0 0 rgba(0, 0, 0, 0),
-        0 7px 0 0 currentColor,
-        0 -5px 0 0 rgba(0, 0, 0, 0),
-        0 -7px 0 0 currentColor;
+    -25px 0 0 0 currentColor,
+    0 5px 0 0 rgba(0, 0, 0, 0),
+    0 7px 0 0 currentColor,
+    0 -5px 0 0 rgba(0, 0, 0, 0),
+    0 -7px 0 0 currentColor;
 }
 
+@media only screen and (max-width: 739px) {
+    .titulo-container {
+        max-width: 300px;
+    }
+
+    .titulo-container h1 {
+        font-size: 20px;
+    }
+}
+
+/* Botões */
 .btn {
     width: 160px;
     padding: 15px 0;

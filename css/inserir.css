@@ -1,0 +1,68 @@
+.inserir-pergunta {
+    max-width: 740px;
+    padding: 120px 20px;
+    margin: 0 auto;
+}
+
+.inserir-pergunta form {
+    max-width: 460px;
+    margin: 30px auto 0;
+}
+
+.inserir-pergunta form .campo {
+    margin-bottom: 20px;
+}
+
+.inserir-pergunta form label {
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+}
+
+.inserir-pergunta form input, .inserir-pergunta form select {
+    width: 100%;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 16px;
+    color: #F8F8F8;
+    background-color: rgba(117, 117, 117, 0.5);
+    outline-color: currentColor;
+}
+
+.inserir-pergunta form select {
+    color: #4A4A4A;
+}
+
+.inserir-pergunta .campo-alternativas {
+    display: grid;
+    gap: 0 20px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.inserir-pergunta .campo-alternativas label {
+    grid-column: 1 / -1;
+}
+
+/* Alterar Placeholder */
+::-webkit-input-placeholder {
+    color: #4A4A4A;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color: #4A4A4A;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    color: #4A4A4A;  
+}
+
+:-ms-input-placeholder {  
+    color: #4A4A4A;  
+}
+
+.inserir-pergunta .btn {
+    margin-top: 30px;
+}

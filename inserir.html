@@ -21,33 +21,33 @@
             </ul>
         </nav>
     </header>
-
+    
     <section class="primeiros-passos">
         <div class="titulo-container">
             <h1>Primeiros Passos</h1>
             <span class="ornamento"></span>
         </div>
-
+        
         <p>Faça login ou crie um novo cadastro para poder ter acesso ao formulário de inserção de perguntas.</p>
-
+        
         <div class="botoes">
             <button type="button" class="btn">Login</button>
             <button type="button" class="btn">Criar</button>
         </div>
     </section>
-
+    
     <main class="inserir-pergunta">
         <div class="titulo-container">
             <h1>Formualário de Inserção</h1>
             <span class="ornamento"></span>
         </div>
-
+        
         <form>
             <div class="campo">
                 <label for="pergunta">Pergunta</label>
                 <input type="text" name="pergunta" id="pergunta" required>
             </div>
-
+            
             <div class="campo campo-alternativas">
                 <label>Repostas</label>
                 <input type="text" name="alter_a" id="alter_a" placeholder="A" required>
@@ -55,7 +55,7 @@
                 <input type="text" name="alter_c" id="alter_c" placeholder="C" required>
                 <input type="text" name="alter_d" id="alter_d" placeholder="D" required>
             </div>
-
+            
             <div class="campo">
                 <label for="alter_correta">Altenativa Correta</label>
                 <select name="alter_correta" id="alter_correta" required>
@@ -66,17 +66,95 @@
                     <option value="D">D</option>
                 </select>
             </div>
-
+            
             <button type="submit" class="btn">Adicionar</button>
         </form>
     </main>
+    
+    <section class="modal-container" data-modalContainer="login">
+        <div class="modal" data-modal="login">
+            <button type="button" class="btn-fechar">
+                <img src="img/btn_fechar_branco.svg" alt="Fechar modal">
+            </button>
+            
+            <div class="titulo-container">
+                <h1>Login</h1>
+                <span class="ornamento"></span>
+            </div>
+            
+            <form id="login">
+                <div class="campo">
+                    <label for="usuario">Usuário:</label>
+                    <input type="text" name="usuario" id="usuario">
+                </div>
+                
+                
+                <div class="campo">
+                    <label for="senha">Senha:</label>
+                    <input type="password" name="senha" id="senha" autocomplete="on"></input>
+                </div>
+                
+                <small class="erro-login">O usuário ou senha digitado está incorreto, tente novamente.</small>
+                
+                <button type="button">Finalizar</button>
+            </form>
+        </div>
+    </section>
+    
+    <section class="modal-container" data-modalContainer="cadastro">
+        <div class="modal" data-modal="cadastro">
+            <button type="button" class="btn-fechar">
+                <img src="img/btn_fechar_branco.svg" alt="Fechar modal">
+            </button>
+            
+            <div class="titulo-container">
+                <h1>Cadastro</h1>
+                <span class="ornamento"></span>
+            </div>
+            
+            <form id="adicionar_item">
+                <div class="campo">
+                    <label for="cad_usuario">Usuário:</label>
+                    <input type="text" name="cad_usuario" id="cad_usuario">
+                </div>
+                
+                
+                <div class="campo">
+                    <label for="cad_senha">Senha:</label>
+                    <input type="password" name="cad_senha" id="cad_senha" autocomplete="on"></input>
+                </div>
+                
+                <button type="button">Finalizar</button>
+            </form>
+        </div>
+    </section>
 
+    <section class="modal-container" data-modalContainer="sair">
+        <div class="modal" data-modal="sair">
+            <button type="button" class="btn-fechar">
+                <img src="img/btn_fechar_branco.svg" alt="Fechar modal">
+            </button>
+            
+            <div class="titulo-container">
+                <h1>Sair</h1>
+                <span class="ornamento"></span>
+            </div>
+            
+            <p>Tem certeza que deseja deslogar do site?</p>
+            
+            <div class="opcoes">
+                <button type="button" id="sim">Sim</button>
+                <button type="button" id="nao">Não</button>
+            </div>
+        </div>
+    </section>
+    
     <footer>
         <div class="titulo-container">
             <h1>Animal Quest - SENAI Suíço Brasileira</h1>
             <span class="ornamento"></span>
         </div>
-
+        
         <ul>
             <li><span>Paulo Henrique</span> <a href="https://github.com/henrique1204"><span>Henrique1204</span></a></li>
             <li><span>Mauricio Calassara</span> <a href="https://github.com/mauricio383"><span>Mauricio383</span></a></li>

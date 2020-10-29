@@ -1,7 +1,58 @@
+/* Página não logado */
+.primeiros-passos {
+    max-width: 740px;
+    padding: 120px 20px;
+    margin: 0 auto;
+    display: block;
+}
+
+.logado .primeiros-passos {
+    display: none;
+}
+
+.primeiros-passos p {
+    max-width: 300px;
+    margin: 30px auto;
+    font-size: 16px;
+    text-align: center;
+}
+
+.primeiros-passos .botoes {
+    max-width: 220px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 20px;
+}
+
+.primeiros-passos .btn {
+    width: 100px;
+    border: 2px solid currentColor;
+    font-size: 18px;
+    color: #004E2D;
+    background-color: #F8F8F8;
+    transition: background-color 0.1s ease;
+}
+
+.primeiros-passos .btn:hover {
+    color: #F8F8F8;
+    background-color: #004E2D;
+}
+
+/* Página Logado */
+.logado .inserir-pergunta, .logado .btn-sair {
+    display: block;
+}
+
+.btn-sair {
+    display: none;
+}
+
 .inserir-pergunta {
     max-width: 740px;
     padding: 120px 20px;
     margin: 0 auto;
+    display: none;
 }
 
 .inserir-pergunta form {

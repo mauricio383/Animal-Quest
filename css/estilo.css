@@ -184,8 +184,8 @@ footer li > span::after {
 /* Botões */
 .btn {
     width: 160px;
-    padding: 15px 0;
-    border: none;
+    padding: 10px 0;
+    border: 2px solid;
     border-radius: 5px;
     margin: 0 auto;
     font-size: 18px;
@@ -195,4 +195,10 @@ footer li > span::after {
     background-color: #004E2D;
     display: block;
     cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+    color: #004E2D;
+    background-color: #F8F8F8;
 }

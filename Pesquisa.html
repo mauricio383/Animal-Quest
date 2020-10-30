@@ -20,57 +20,68 @@
             </ul>
         </nav>
     </header>
-
+    
     <section class="perguntas">
         <ul>
             <li>
-                <span>Quais paises o Tigre bengala habita?</span>
+                <span>Pergunta 1</span>
                 <img src="img/setinha.svg" alt="Clique para abrir modal">
             </li>
             <li>
-                <span>Qual a maior cobra do mundo?</span>
+                <span>Pergunta 2</span>
                 <img src="img/setinha.svg" alt="Clique para abrir modal">
             </li>
             <li>
-                <span>Qual é o principal alimento do Albatroz Gigante?</span>
+                <span>Pergunta 3</span>
                 <img src="img/setinha.svg" alt="Clique para abrir modal">
             </li>
             <li>
-                <span>Qual é o mamífero marsupial que tem uma pelagem constituída por espinhos e que quando atacado libera esses espinhos no seu predador?</span>
+                <span>Pergunta 4</span>
                 <img src="img/setinha.svg" alt="Clique para abrir modal">
             </li>
             <li>
-                <span>Como se chamam as espécies que podem viver tanto em terra quanto na água?</span>
+                <span>Pergunta 5</span>
                 <img src="img/setinha.svg" alt="Clique para abrir modal">
             </li>
             <li>
-                <span>Qual o animal mais venenoso do mundo?</span>
+                <span>Pergunta 6</span>
                 <img src="img/setinha.svg" alt="Clique para abrir modal">
             </li>
         </ul>
     </section>
-
-    <section>
-        <h1>Pergunta 1</h1>
-
-        <p>Quais países o Tigre bengala habita?</p>
-
-        <form action="resposta-modal">
-           <input type="radio" name="Resposta">India e Nepal. (Verdadeira)
-           <input type="radio" name="Resposta">China e Tailandia.
-           <input type="radio" name="Resposta">China e India.
-           <input type="radio" name="Resposta">Nepal e Tailandia.
-
-            <button type="button" name="fechar">Fechar</button>
-        </form>
+    
+    <section class="modal-container" data-modalContainer="pergunta">
+        <div class="modal" data-modal="pergunta">
+            <button type="button" class="btn-fechar">
+                <img src="img/btn_fechar_verde.svg" alt="Fechar modal">
+            </button>
+            
+            <div class="titulo-container">
+                <h1>Pergunta 1</h1>
+                <span class="ornamento"></span>
+            </div>
+            
+            <p>Quais países o Tigre bengala habita?</p>
+            
+            <form action="resposta-modal">
+                <label for="res-a"><input type="radio" name="res" id="res-a"> India e Nepal.</label>
+                <label for="res-b"><input type="radio" name="res" id="res-b"> China e Tailandia.</label>
+                <label for="res-c"><input type="radio" name="res" id="res-c"> China e India.</label>
+                <label for="res-d"><input type="radio" name="res" id="res-d"> Nepal e Tailandia.</label>
+                
+                <small class="msg-resposta">Reposta correta: India e Nepal.</small>
+                
+                <button type="submit" name="responder">Responder</button>
+            </form>
+        </div>
     </section>
-
+    
     <footer>
         <div class="titulo-container">
             <h1>Animal Quest - SENAI Suíço Brasileira</h1>
             <span class="ornamento"></span>
         </div>
-
+        
         <ul>
             <li><span>Paulo Henrique</span> <a href="https://github.com/henrique1204"><span>Henrique1204</span></a></li>
             <li><span>Mauricio Calassara</span> <a href="https://github.com/mauricio383"><span>Mauricio383</span></a></li>

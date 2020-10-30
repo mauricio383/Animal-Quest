@@ -1,6 +1,10 @@
 .perguntas {
-    max-width: 740px;
     padding: 120px 20px;
+}
+
+
+.perguntas ul {
+    max-width: 740px;
     margin: 0 auto;
 }
 
@@ -32,4 +36,112 @@
 .perguntas ul li img {
     width: 15px;
     display: block;
+}
+
+/* Modal */
+.modal-container {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+}
+
+.modal-container.ativo {
+    display: flex;
+}
+
+.modal-container.ativo .modal{
+    animation: descer 0.4s forwards ease;
+}
+
+.modal {
+    max-width: 300px;
+    padding: 30px;
+    border: 4px solid;
+    border-radius: 4px;
+    color: #004E2D;
+    background-color: #F8F8F8;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.modal .btn-fechar {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.modal .btn-fechar:hover {
+    transform: rotate(90deg);
+}
+
+.modal form label {
+    padding: 0 20px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.modal form input {
+    width: 15px;
+    margin-right: 20px;
+    display: block;
+}
+
+.modal .msg-resposta {
+    margin-bottom: 30px;
+    padding: 10px 5px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    display: block;
+}
+
+.modal .msg-resposta.correta {
+    color: #004E2D;
+    background-color: rgba(0, 78, 45, 0.2);
+}
+
+.modal .msg-resposta.errada {
+    color: #F8F8F8;
+    background-color: rgba(255, 117, 117, 0.6);
+}
+
+.modal form button {
+    width: 120px;
+    padding: 10px 0;
+    border: 2px solid;
+    border-radius: 4px;
+    margin: 30px auto 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #F8F8F8;
+    background-color: #004E2D;
+    display: block;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+.modal form button:hover {
+    color: #004E2D;
+    background-color: #F8F8F8;
+}
+
+.modal p {
+    margin: 30px 0;
+    text-align: center;
 }

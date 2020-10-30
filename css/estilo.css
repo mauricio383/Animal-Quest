@@ -209,3 +209,14 @@ footer li > span::after {
     color: #004E2D;
     background-color: #F8F8F8;
 }
+
+/* Animações */
+@keyframes descer {
+    from {
+        transform: translate3d(0, -100px, 0);
+        opacity: 0;
+    } to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}

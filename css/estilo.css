@@ -33,6 +33,9 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #4A4A4A;
     background: #E4E4E4 url('../img/fundo_banner.svg') repeat top center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* Header */

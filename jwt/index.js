@@ -98,6 +98,20 @@ app.post('/cadastro', (req, res, next) => {
     .catch(erro => res.json(erro));
 });
 
+// Define a rota de cadastro de usuários.
+app.get('/pesquisa', (req, res, next) => {
+    // Fetch que acessa o banco de dados.
+    fetch('https://api.sheety.co/923090dcb0591f446fe08a985a6c76c3/animalQuest/pesquisa')
+    .then(resFetch => resFetch.json())
+    .then(json => {
+        // Informando no terminal que passou pela verificação.
+        console.log("Puxou!");
+        // Retorno dos dados.
+        res.json(json.pesquisa);
+    })
+    .catch(erro => res.json(erro));
+});
+
 // Inicia o servidor com as rotas na porta 3001.
 var server = http.createServer(app); 
 server.listen(3001);

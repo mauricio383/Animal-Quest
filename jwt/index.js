@@ -35,12 +35,44 @@ app.get('/', (req, res, next) => {
 
 // Define a rota que faz o login e retorna o token.
 app.post('/login', (req, res, next) => {
-
+        // Fetch que acessa o banco de dados e retorna a lista de usuários.
+        fetch('https://api.sheety.co/923090dcb0591f446fe08a985a6c76c3/animalQuest/usuarios')
+        .then(resFetch => resFetch.json())
+        .then(json => {
+            // Lista de usuário.
+            const usuarios = json.usuarios;
+    
+            // Laço que percorre a lista de dados.
+            usuarios.forEach((usuario) => {
+                // Verificação para ver se os dados passados...
+                // ...batem com algum valor do banco de dados.
+                if(req.body.usuario.toString() === usuario.usuario && req.body.senha === usuario.senha.toString()) {
+                    // Autorização bem sucedida.
+                    const id = usuario.id;
+    
+                    // Gera o token
+                    var token = jwt.sign({ id }, process.env.SECRET, {
+                        // Faz que o token dure 2 horas.
+                        expiresIn: (60 * 60 * 2)
+                    });
+    
+                    // Retorno do token.
+                    console.log("Autorizado!");
+                    return res.json({ autorizacao: true, token: token });
+                }
+            });
+    
+            // Retorno para caso a autenticação não seja bem sucedida.
+            console.log("Não autorizado!");
+            res.status(500).json({message: 'Login inválido!'});
+        })
+        .catch(erro => res.json(erro));
 });
 
 // Define a rota que faz o logout da conta.
 app.post('/logout', function(req, res) {
-    res.json({ auth: false, token: null });
+    console.log("Logout feito com sucesso!");
+    res.json({ autorizacao: false, token: null });
 });
 
 // Inicia o servidor com as rotas na porta 3001.

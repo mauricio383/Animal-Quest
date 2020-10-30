@@ -75,6 +75,29 @@ app.post('/logout', function(req, res) {
     res.json({ autorizacao: false, token: null });
 });
 
+// Define a rota de cadastro de usuários.
+app.post('/cadastro', (req, res, next) => {
+    const body = {
+        usuario: {
+            "usuario": req.body.usuario,
+            "senha": req.body.senha
+        }
+    }
+    // Fetch para adicionar um novo usuário ao banco de dados.
+    fetch('https://api.sheety.co/923090dcb0591f446fe08a985a6c76c3/animalQuest/usuarios', {
+        method: 'POST',
+        // Dado que será adicionado
+        body: JSON.stringify(body),
+        headers: {"Content-type": "application/json; charset=UTF-8"}
+    })
+    .then((response) => response.json())
+    .then(json => {
+        console.log("Cadastro realizado com sucesso!");
+        res.json(json);
+    })
+    .catch(erro => res.json(erro));
+});
+
 // Inicia o servidor com as rotas na porta 3001.
 var server = http.createServer(app); 
 server.listen(3001);

@@ -2,6 +2,8 @@
 import Modal from "./modules/modal.js";
 // Importa a classe para login.
 import Login from "./modules/Login.js";
+// Importa a classe para fazer logout.
+import Logout from "./modules/Logout.js";
 
 // Seleciona os botões que ativam o modal...
 // ...e retorna uma nodeList com os elementos html.
@@ -42,10 +44,13 @@ const token = sessionStorage.getItem("token");
 if (token) {
     // Case exista, adiciona a classe "logado" no body.
     document.body.classList.add("logado");
+
+    new Logout(".opcoes").iniciar();
 } else {
     // Caso não exista, remove a classe de logado do body.
     document.body.classList.remove("logado");
     
-    // Chama o método "login". (linha 19)
+    // Chama o método "login".
     login();
 }
+

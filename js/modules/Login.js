@@ -40,7 +40,7 @@ export default class Login {
         if (token) {
             // Caso tenha sido retornado, ele salva no sessionStorage do navegador.
             sessionStorage.setItem('token', token);
-            // Recarrega a página para mostrar os cards.
+            // Recarrega a página para mostrar os formulário.
             window.location.reload();
         } else {
             // Caso ele não tenha sido retornado, muda o estilo "display" do elemento selecionado para "block"

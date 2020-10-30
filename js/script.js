@@ -4,6 +4,8 @@ import Modal from "./modules/modal.js";
 import Login from "./modules/Login.js";
 // Importa a classe para fazer logout.
 import Logout from "./modules/Logout.js";
+// Importa a classe para fazer cadastro de usuarios.
+import Cadastro from "./modules/Cadastro.js";
 
 // Seleciona os botões que ativam o modal...
 // ...e retorna uma nodeList com os elementos html.
@@ -29,14 +31,6 @@ btns.forEach((btn) => {
     }
 });
 
-// Método que inicia o login.
-function login() {
-    // Instância a classe modal e inicia seus métodos.
-    new Modal("login").iniciar();
-    // Instância a classe Login e inicia seus métodos.
-    new Login("#login").iniciar(); 
-}
-
 // Puxa o token da session storage do navegador.
 const token = sessionStorage.getItem("token");
 
@@ -45,12 +39,14 @@ if (token) {
     // Case exista, adiciona a classe "logado" no body.
     document.body.classList.add("logado");
 
+    // Instância a classe Logout e inicia seus métodos.
     new Logout(".opcoes").iniciar();
 } else {
     // Caso não exista, remove a classe de logado do body.
     document.body.classList.remove("logado");
     
-    // Chama o método "login".
-    login();
+    // Instância a classe Login e inicia seus métodos.
+    new Login("#login").iniciar();
+    // Instância a classe Cadastro e inicia seus métodos.
+    new Cadastro("#cadastro").iniciar();
 }
-

@@ -114,11 +114,13 @@
 .modal .msg-resposta.correta {
     color: #004E2D;
     background-color: rgba(0, 78, 45, 0.2);
+    display: block;
 }
 
 .modal .msg-resposta.errada {
     color: #F8F8F8;
     background-color: rgba(255, 117, 117, 0.6);
+    display: block;
 }
 
 .modal form button {

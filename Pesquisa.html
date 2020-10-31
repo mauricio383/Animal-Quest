@@ -26,32 +26,7 @@
     </header>
     
     <section class="perguntas">
-        <ul>
-            <li data-btn="pergunta">
-                <span>Pergunta 1</span>
-                <img src="img/setinha.svg" alt="Clique para abrir modal">
-            </li>
-            <li>
-                <span>Pergunta 2</span>
-                <img src="img/setinha.svg" alt="Clique para abrir modal">
-            </li>
-            <li>
-                <span>Pergunta 3</span>
-                <img src="img/setinha.svg" alt="Clique para abrir modal">
-            </li>
-            <li>
-                <span>Pergunta 4</span>
-                <img src="img/setinha.svg" alt="Clique para abrir modal">
-            </li>
-            <li>
-                <span>Pergunta 5</span>
-                <img src="img/setinha.svg" alt="Clique para abrir modal">
-            </li>
-            <li>
-                <span>Pergunta 6</span>
-                <img src="img/setinha.svg" alt="Clique para abrir modal">
-            </li>
-        </ul>
+        <ul></ul>
     </section>
     
     <section class="modal-container" data-modalContainer="pergunta">
@@ -61,21 +36,33 @@
             </button>
             
             <div class="titulo-container">
-                <h1>Pergunta 1</h1>
+                <h1></h1>
                 <span class="ornamento"></span>
             </div>
             
-            <p>Quais países o Tigre bengala habita?</p>
+            <p></p>
             
-            <form action="resposta-modal">
-                <label for="res-a"><input type="radio" name="res" id="res-a"> India e Nepal.</label>
-                <label for="res-b"><input type="radio" name="res" id="res-b"> China e Tailandia.</label>
-                <label for="res-c"><input type="radio" name="res" id="res-c"> China e India.</label>
-                <label for="res-d"><input type="radio" name="res" id="res-d"> Nepal e Tailandia.</label>
+            <form class="resposta-modal">
+                <label for="res-a">
+                    <input type="radio" name="res" id="res-a" value="a">
+                    <span data-alternativa="a"> India e Nepal.</span>
+                </label>
+                <label for="res-b">
+                    <input type="radio" name="res" id="res-b" value="b">
+                    <span data-alternativa="b"> China e Tailandia.</span>
+                </label>
+                <label for="res-c">
+                    <input type="radio" name="res" id="res-c" value="c">
+                    <span data-alternativa="c"> China e India.</span>
+                </label>
+                <label for="res-d">
+                    <input type="radio" name="res" id="res-d" value="d">
+                    <span data-alternativa="d"> Nepal e Tailandia.</span>
+                </label>
                 
                 <small class="msg-resposta">Reposta correta: India e Nepal.</small>
                 
-                <button type="submit" name="responder">Responder</button>
+                <button type="button" id="responder">Responder</button>
             </form>
         </div>
     </section>

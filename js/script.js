@@ -1,11 +1,36 @@
 // Importa o arquivo modal.js
-import Modal from "./modules/modal.js";
+import Modal from "./modules/Modal.js";
 // Importa a classe para login.
 import Login from "./modules/Login.js";
 // Importa a classe para fazer logout.
 import Logout from "./modules/Logout.js";
 // Importa a classe para fazer cadastro de usuarios.
 import Cadastro from "./modules/Cadastro.js";
+// Importa a classe para fazer a busca das perguntas.
+import Buscar from "./modules/Buscar.js";
+
+// Instância a classe Buscar e inicia seus métodos.
+new Buscar(".perguntas ul", "pergunta").iniciar();
+
+// Puxa o token da session storage do navegador.
+const token = sessionStorage.getItem("token");
+
+// Testa se o token existe.
+if (token) {
+    // Case exista, adiciona a classe "logado" no body.
+    document.body.classList.add("logado");
+
+    // Instância a classe Logout e inicia seus métodos.
+    new Logout(".opcoes").iniciar();
+} else {
+    // Caso não exista, remove a classe de logado do body.
+    document.body.classList.remove("logado");
+    
+    // Instância a classe Login e inicia seus métodos.
+    new Login("#login").iniciar();
+    // Instância a classe Cadastro e inicia seus métodos.
+    new Cadastro("#cadastro").iniciar();
+}
 
 // Seleciona os botões que ativam o modal...
 // ...e retorna uma nodeList com os elementos html.
@@ -30,23 +55,3 @@ btns.forEach((btn) => {
         });
     }
 });
-
-// Puxa o token da session storage do navegador.
-const token = sessionStorage.getItem("token");
-
-// Testa se o token existe.
-if (token) {
-    // Case exista, adiciona a classe "logado" no body.
-    document.body.classList.add("logado");
-
-    // Instância a classe Logout e inicia seus métodos.
-    new Logout(".opcoes").iniciar();
-} else {
-    // Caso não exista, remove a classe de logado do body.
-    document.body.classList.remove("logado");
-    
-    // Instância a classe Login e inicia seus métodos.
-    new Login("#login").iniciar();
-    // Instância a classe Cadastro e inicia seus métodos.
-    new Cadastro("#cadastro").iniciar();
-}

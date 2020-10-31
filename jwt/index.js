@@ -36,7 +36,7 @@ app.get('/', (req, res, next) => {
 // Define a rota que faz o login e retorna o token.
 app.post('/login', (req, res, next) => {
         // Fetch que acessa o banco de dados e retorna a lista de usuários.
-        fetch('https://api.sheety.co/923090dcb0591f446fe08a985a6c76c3/animalQuest/usuarios')
+        fetch('https://api.sheety.co/6c4d1cc25c77816a5732ecd4d912705d/planilhaSemT%C3%ADtulo/usuarios')
         .then(resFetch => resFetch.json())
         .then(json => {
             // Lista de usuário.
@@ -83,8 +83,9 @@ app.post('/cadastro', (req, res, next) => {
             "senha": req.body.senha
         }
     }
+
     // Fetch para adicionar um novo usuário ao banco de dados.
-    fetch('https://api.sheety.co/923090dcb0591f446fe08a985a6c76c3/animalQuest/usuarios', {
+    fetch('https://api.sheety.co/6c4d1cc25c77816a5732ecd4d912705d/planilhaSemT%C3%ADtulo/usuarios', {
         method: 'POST',
         // Dado que será adicionado
         body: JSON.stringify(body),
@@ -101,7 +102,7 @@ app.post('/cadastro', (req, res, next) => {
 // Define a rota de cadastro de usuários.
 app.get('/pesquisa', (req, res, next) => {
     // Fetch que acessa o banco de dados.
-    fetch('https://api.sheety.co/923090dcb0591f446fe08a985a6c76c3/animalQuest/pesquisa')
+    fetch('https://api.sheety.co/6c4d1cc25c77816a5732ecd4d912705d/planilhaSemT%C3%ADtulo/pesquisa')
     .then(resFetch => resFetch.json())
     .then(json => {
         // Informando no terminal que passou pela verificação.

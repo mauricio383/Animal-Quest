@@ -8,6 +8,8 @@ import Logout from "./modules/Logout.js";
 import Cadastro from "./modules/Cadastro.js";
 // Importa a classe para fazer a busca das perguntas.
 import Buscar from "./modules/Buscar.js";
+// Importa a classe para fazer a Adição das perguntas.
+import Adicionar from "./modules/Adicionar.js";
 
 // Instância a classe Buscar e inicia seus métodos.
 new Buscar(".perguntas ul", "pergunta").iniciar();
@@ -22,6 +24,8 @@ if (token) {
 
     // Instância a classe Logout e inicia seus métodos.
     new Logout(".opcoes").iniciar();
+    // Instância a classe Adicionar e inicia seus métodos.
+    new Adicionar(".adicionar-pergunta").iniciar();
 } else {
     // Caso não exista, remove a classe de logado do body.
     document.body.classList.remove("logado");

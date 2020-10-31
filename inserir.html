@@ -46,7 +46,7 @@
             <span class="ornamento"></span>
         </div>
         
-        <form>
+        <form class="adicionar-pergunta">
             <div class="campo">
                 <label for="pergunta">Pergunta</label>
                 <input type="text" name="pergunta" id="pergunta" required>
@@ -54,24 +54,24 @@
             
             <div class="campo campo-alternativas">
                 <label>Repostas</label>
-                <input type="text" name="alter_a" id="alter_a" placeholder="A" required>
-                <input type="text" name="alter_b" id="alter_b" placeholder="B" required>
-                <input type="text" name="alter_c" id="alter_c" placeholder="C" required>
-                <input type="text" name="alter_d" id="alter_d" placeholder="D" required>
+                <input type="text" name="a" id="a" placeholder="A" required>
+                <input type="text" name="b" id="b" placeholder="B" required>
+                <input type="text" name="c" id="c" placeholder="C" required>
+                <input type="text" name="d" id="d" placeholder="D" required>
             </div>
             
             <div class="campo">
-                <label for="alter_correta">Altenativa Correta</label>
-                <select name="alter_correta" id="alter_correta" required>
+                <label for="correta">Altenativa Correta</label>
+                <select name="correta" id="correta" required>
                     <option value="">Seleciona a altenativa....</option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
+                    <option value="a">A</option>
+                    <option value="b">B</option>
+                    <option value="c">C</option>
+                    <option value="d">D</option>
                 </select>
             </div>
             
-            <button type="submit" class="btn">Adicionar</button>
+            <button type="button" class="btn">Adicionar</button>
         </form>
     </main>
     

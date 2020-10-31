@@ -99,7 +99,7 @@ app.post('/cadastro', (req, res, next) => {
     .catch(erro => res.json(erro));
 });
 
-// Define a rota de cadastro de usuários.
+// Define a rota para buscar as pesquisas.
 app.get('/pesquisa', (req, res, next) => {
     // Fetch que acessa o banco de dados.
     fetch('https://api.sheety.co/6c4d1cc25c77816a5732ecd4d912705d/planilhaSemT%C3%ADtulo/pesquisa')
@@ -109,6 +109,34 @@ app.get('/pesquisa', (req, res, next) => {
         console.log("Puxou!");
         // Retorno dos dados.
         res.json(json.pesquisa);
+    })
+    .catch(erro => res.json(erro));
+});
+
+// Definindo rota para adicionar pesquisas.
+app.post('/pesquisa', verifyJWT, (req, res, next) => {
+    const body = {
+        pesquisa: {
+            "pergunta": req.body.pergunta,
+            "a": req.body.a,
+            "b": req.body.b,
+            "c": req.body.c,
+            "d": req.body.d,
+            "correta": req.body.correta
+        }
+    }
+
+    // Fetch que acessa o banco de dados e adiciona o prato.
+    fetch('https://api.sheety.co/6c4d1cc25c77816a5732ecd4d912705d/planilhaSemT%C3%ADtulo/pesquisa', {
+        method: "POST",
+        body: JSON.stringify(body),
+        headers: {"Content-type": "application/json; charset=UTF-8"}
+    })
+    .then(resFetch => resFetch.json())
+    .then(json => {
+        // Informando no terminal que passou pela verificação.
+        console.log("Adicionou!");
+        res.json(json)
     })
     .catch(erro => res.json(erro));
 });

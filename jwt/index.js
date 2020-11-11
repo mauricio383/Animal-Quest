@@ -20,7 +20,6 @@ const mysql = require('mysql');
 // Configurando a conexão com o banco MySQL.
 var dbConn = mysql.createConnection({
     host: 'localhost',
-    port: '3306',
     user: 'app_pesquisa',
     password: '',
     database: 'pesquisa'
@@ -135,30 +134,29 @@ app.get('/pesquisa', (req, res, next) => {
 
 // Definindo rota para adicionar pesquisas.
 app.post('/pesquisa', verifyJWT, (req, res, next) => {
-    const body = {
-        pesquisa: {
-            "pergunta": req.body.pergunta,
-            "a": req.body.a,
-            "b": req.body.b,
-            "c": req.body.c,
-            "d": req.body.d,
-            "correta": req.body.correta
-        }
-    }
+    const {pergunta: enunciado, a, b, c, d, correta} = req.body;
+
+    // Faz a consulta no banco de dados.
+    dbConn.query(`INSERT INTO pergunta (id, enunciado, a, b, c, d, correta) VALUES (NULL, "${enunciado}", "${a}", "${b}", "${c}", "${d}", "${correta}")`, function(error, results, fields) {
+        // Testa se deu algum erro, caso tenha lança uma execessão.
+        if (error) throw error;
+
+        return res.json(req.body);
+    });
 
     // Fetch que acessa o banco de dados e adiciona o prato.
-    fetch('https://api.sheety.co/6c4d1cc25c77816a5732ecd4d912705d/planilhaSemT%C3%ADtulo/pesquisa', {
-        method: "POST",
-        body: JSON.stringify(body),
-        headers: {"Content-type": "application/json; charset=UTF-8"}
-    })
-    .then(resFetch => resFetch.json())
-    .then(json => {
-        // Informando no terminal que passou pela verificação.
-        console.log("Adicionou!");
-        res.json(json)
-    })
-    .catch(erro => res.json(erro));
+    // fetch('https://api.sheety.co/6c4d1cc25c77816a5732ecd4d912705d/planilhaSemT%C3%ADtulo/pesquisa', {
+    //     method: "POST",
+    //     body: JSON.stringify(body),
+    //     headers: {"Content-type": "application/json; charset=UTF-8"}
+    // })
+    // .then(resFetch => resFetch.json())
+    // .then(json => {
+    //     // Informando no terminal que passou pela verificação.
+    //     console.log("Adicionou!");
+    //     res.json(json)
+    // })
+    // .catch(erro => res.json(erro));
 });
 
 // Inicia o servidor com as rotas na porta 3001.

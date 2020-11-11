@@ -5,14 +5,30 @@ const cors = require('cors');
 
 // Adicionando o JWT.
 require("dotenv-safe").config();
-var jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
  
 // Adicionando pacotes para o servidor rodar.
-var http = require('http'); 
+const http = require('http'); 
 const express = require('express') 
 const app = express() 
-var cookieParser = require('cookie-parser'); 
+const cookieParser = require('cookie-parser'); 
 const bodyParser = require('body-parser');
+
+// Adiciona o pacote para fazer as consultas MySQL.
+const mysql = require('mysql');
+
+// Configurando a conexão com o banco MySQL.
+var dbConn = mysql.createConnection({
+    host: 'localhost',
+    port: '3306',
+    user: 'app_pesquisa',
+    password: '',
+    database: 'pesquisa'
+});
+
+// Conectando a aplicação ao banco.
+dbConn.connect();
+
 
 app.use((req, res, next) => {
     // Qual site tem permissão de realizar a conexão.
@@ -51,7 +67,7 @@ app.post('/login', (req, res, next) => {
                     const id = usuario.id;
     
                     // Gera o token
-                    var token = jwt.sign({ id }, process.env.SECRET, {
+                    const token = jwt.sign({ id }, process.env.SECRET, {
                         // Faz que o token dure 2 horas.
                         expiresIn: (60 * 60 * 2)
                     });
@@ -101,16 +117,20 @@ app.post('/cadastro', (req, res, next) => {
 
 // Define a rota para buscar as pesquisas.
 app.get('/pesquisa', (req, res, next) => {
-    // Fetch que acessa o banco de dados.
-    fetch('https://api.sheety.co/6c4d1cc25c77816a5732ecd4d912705d/planilhaSemT%C3%ADtulo/pesquisa')
-    .then(resFetch => resFetch.json())
-    .then(json => {
-        // Informando no terminal que passou pela verificação.
-        console.log("Puxou!");
-        // Retorno dos dados.
-        res.json(json.pesquisa);
-    })
-    .catch(erro => res.json(erro));
+    // Faz a consulta no banco de dados.
+    dbConn.query('SELECT * FROM pergunta', function(error, results, fields) {
+        // Testa se deu algum erro, caso tenha lança uma execessão.
+        if (error) throw error;
+
+        // Testa se a consulta trouxe algum dado.
+        if (results.length > 0) {
+            // Caso tenha trago retorna os dados.
+            return res.json(results);
+        } else {
+            // Caso não tenha trago retorna a mensagem abaixo.
+            return res.json({ mensagem: "Não veio dados." });
+        }
+    });
 });
 
 // Definindo rota para adicionar pesquisas.
@@ -142,14 +162,14 @@ app.post('/pesquisa', verifyJWT, (req, res, next) => {
 });
 
 // Inicia o servidor com as rotas na porta 3001.
-var server = http.createServer(app); 
+const server = http.createServer(app); 
 server.listen(3001);
 console.log("Servidor escutando na porta 3001...");
 
 // Função que faz a verificação do token.
 function verifyJWT(req, res, next){
     // Puxa o token do header.
-    var token = req.headers['x-access-token'];
+    const token = req.headers['x-access-token'];
 
     // Confere se o token não existe.
     if (!token) {

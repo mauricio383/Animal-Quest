@@ -91,7 +91,7 @@ export default class Busca {
 
             // Define atributos data ao elemento li.
             li.dataset.btn = this.nomeModal;
-            li.dataset.pergunta = item.pergunta;
+            li.dataset.pergunta = item.enunciado;
             li.dataset.alternativa_a = item.a;
             li.dataset.alternativa_b = item.b;
             li.dataset.alternativa_c = item.c;

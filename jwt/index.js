@@ -28,7 +28,6 @@ var dbConn = mysql.createConnection({
 // Conectando a aplicação ao banco.
 dbConn.connect();
 
-
 app.use((req, res, next) => {
     // Qual site tem permissão de realizar a conexão.
     // O "*" define que qualquer site pode usar a API.
@@ -92,26 +91,16 @@ app.post('/logout', function(req, res) {
 
 // Define a rota de cadastro de usuários.
 app.post('/cadastro', (req, res, next) => {
-    const body = {
-        usuario: {
-            "usuario": req.body.usuario,
-            "senha": req.body.senha
-        }
-    }
+    // Pega os dados passados no corpo da requisição.
+    const {usuario, senha} = req.body;
 
-    // Fetch para adicionar um novo usuário ao banco de dados.
-    fetch('https://api.sheety.co/6c4d1cc25c77816a5732ecd4d912705d/planilhaSemT%C3%ADtulo/usuarios', {
-        method: 'POST',
-        // Dado que será adicionado
-        body: JSON.stringify(body),
-        headers: {"Content-type": "application/json; charset=UTF-8"}
-    })
-    .then((response) => response.json())
-    .then(json => {
-        console.log("Cadastro realizado com sucesso!");
-        res.json(json);
-    })
-    .catch(erro => res.json(erro));
+    // Faz inserção no banco de dados.
+    dbConn.query(`INSERT INTO usuario (id, nome, senha) VALUES (NULL, "${usuario}", SHA2("${senha}", 224))`, function(error, results, fields) {
+        // Testa se deu algum erro, caso tenha lança uma execessão.
+        if (error) throw error;
+
+        return res.json(req.body);
+    });
 });
 
 // Define a rota para buscar as pesquisas.
@@ -134,29 +123,16 @@ app.get('/pesquisa', (req, res, next) => {
 
 // Definindo rota para adicionar pesquisas.
 app.post('/pesquisa', verifyJWT, (req, res, next) => {
+    // Pega os dados passados no corpo da requisição.
     const {pergunta: enunciado, a, b, c, d, correta} = req.body;
 
-    // Faz a consulta no banco de dados.
+    // Faz inserção no banco de dados.
     dbConn.query(`INSERT INTO pergunta (id, enunciado, a, b, c, d, correta) VALUES (NULL, "${enunciado}", "${a}", "${b}", "${c}", "${d}", "${correta}")`, function(error, results, fields) {
         // Testa se deu algum erro, caso tenha lança uma execessão.
         if (error) throw error;
 
         return res.json(req.body);
     });
-
-    // Fetch que acessa o banco de dados e adiciona o prato.
-    // fetch('https://api.sheety.co/6c4d1cc25c77816a5732ecd4d912705d/planilhaSemT%C3%ADtulo/pesquisa', {
-    //     method: "POST",
-    //     body: JSON.stringify(body),
-    //     headers: {"Content-type": "application/json; charset=UTF-8"}
-    // })
-    // .then(resFetch => resFetch.json())
-    // .then(json => {
-    //     // Informando no terminal que passou pela verificação.
-    //     console.log("Adicionou!");
-    //     res.json(json)
-    // })
-    // .catch(erro => res.json(erro));
 });
 
 // Inicia o servidor com as rotas na porta 3001.
